@@ -75,8 +75,6 @@ tdf = DataFrame([t,tc],[:rep,:count])
         x[:,i] .~ Poisson(control[i])
         y[:,i] .~ Poisson(tet[i])
     end
-   # x .~ Poisson.(vcat(fill(control',6)...))
-    #y .~ Poisson.(vcat(fill(tet',6)...))
 end
 conjugate_chain = sample(conjugate(control,tet), NUTS(),MCMCThreads(),1000,4)
 D = Dict()
